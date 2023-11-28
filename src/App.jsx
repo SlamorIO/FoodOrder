@@ -1,9 +1,21 @@
+import Header from "./components/Header";
+import Meals from "./components/Meals";
+import Cart from "./components/Cart";
+import { CartContextProvider } from "./store/CartContext";
+import { UserProgressContextProvider } from "./store/UserProgressContext";
+import Checkout from "./components/Checkout";
+
 function App() {
   return (
     <>
-      <h1>You got this 💪</h1>
-      <p>Stuck? Not sure how to proceed?</p>
-      <p>Don't worry - we've all been there. Let's build it together!</p>
+      <UserProgressContextProvider>
+        <CartContextProvider>
+          <Header></Header>
+          <Meals></Meals>
+          <Cart></Cart>
+          <Checkout></Checkout>
+        </CartContextProvider>
+      </UserProgressContextProvider>
     </>
   );
 }
